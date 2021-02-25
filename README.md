@@ -82,8 +82,14 @@ Sample project for showing the ability to publish an SNS topic and trigger a fun
 Every function will try to retry its execution upon failure a total of 3 times. Using the dead letter queue as a pool for our error logs is a smart use-case.
 
 
-# Use AWS Lambda context object in Node.js for Better Debugging:
+# Use AWS Lambda context object's callbackWaitsForEmptyEventLoop in Node.js for Better fault tolerance:
 ### callbackWaitsForEmptyEventLoop
 
 The default value is  `true`. This property is useful only to modify the default behavior of the callback. By default, the callback will wait until the Node.js runtime event loop is empty before freezing the process and returning the results to the caller. You can set this property to false to request AWS Lambda to freeze the process soon after the callback is called, even if there are events in the event loop. AWS Lambda will freeze the process, any state data and the events in the Node.js event loop (any remaining events in the event loop processed when the Lambda function is called next and if AWS Lambda chooses to use the frozen process).
+
+# Extra logs for each event you come across for Better Debugging:
+
+When Lambda runs your function, it passes a context object to the handler. This object provides methods and properties that provide information about the invocation, function, and execution environment.
+
+
 
