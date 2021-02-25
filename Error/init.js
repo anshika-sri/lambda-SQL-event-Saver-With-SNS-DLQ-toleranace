@@ -21,7 +21,7 @@ function generateError (code, err) {
 async function publishSnsTopic (data) {
   const params = {
     Message: JSON.stringify(data),
-    TopicArn: `arn:aws:sns:${process.env.region}:${process.env.accountId}:calculate-topic`
+    TopicArn: `arn:aws:sns:${process.env.SNS_REGION}:calculate-topic`
   }
   return sns.publish(params).promise()
 }
